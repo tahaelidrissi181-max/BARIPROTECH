@@ -159,6 +159,7 @@ body{font-family:'Outfit',sans-serif;background:var(--surface);color:var(--steel
 .rc-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.15rem;color:var(--steel-deep);text-transform:uppercase;letter-spacing:.02em}
 .rc-location{font-size:.78rem;color:var(--frost)}
 .rc-service{font-size:.8rem;color:var(--steel);margin-top:.4rem;line-height:1.5}
+.rc-budget-conf{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;color:#64748B;background:#F1F5F9;border:1px dashed #CBD5E1;padding:4px 10px;border-radius:10px;margin-top:.6rem;width:fit-content;letter-spacing:.02em}
 .rc-budget{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;font-weight:700;color:var(--ice-dark);background:var(--ice-light);padding:4px 10px;border-radius:10px;margin-top:.6rem;width:fit-content}
 .real-stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:3rem}
 .real-stat{background:white;border-radius:var(--r-lg);border:1.5px solid var(--frost-light);padding:1.25rem 1rem;text-align:center}
@@ -179,6 +180,7 @@ body{font-family:'Outfit',sans-serif;background:var(--surface);color:var(--steel
 .rc-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.15rem;color:var(--steel-deep);text-transform:uppercase;letter-spacing:.02em}
 .rc-location{font-size:.78rem;color:var(--frost)}
 .rc-service{font-size:.8rem;color:var(--steel);margin-top:.4rem;line-height:1.5}
+.rc-budget-conf{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;color:#64748B;background:#F1F5F9;border:1px dashed #CBD5E1;padding:4px 10px;border-radius:10px;margin-top:.6rem;width:fit-content;letter-spacing:.02em}
 .rc-budget{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;font-weight:700;color:var(--ice-dark);background:var(--ice-light);padding:4px 10px;border-radius:10px;margin-top:.6rem;width:fit-content}
 .real-stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:3rem}
 .real-stat{background:white;border-radius:var(--r-lg);border:1.5px solid var(--frost-light);padding:1.25rem 1rem;text-align:center}
@@ -408,6 +410,7 @@ textarea.form-input{resize:vertical;min-height:100px}
     <div class="hero-ctas">
       <a href="https://wa.me/212678721134" class="btn-wa">💬 Demander un devis</a>
       <a href="tel:+212678721134" class="btn-call">📞 +212 678 721 134</a>
+      <a href="https://mail.google.com/mail/?view=cm&to=bariprotec@gmail.com&su=Demande%20d%27intervention%20%E2%80%94%20Bari%20Protec&body=Bonjour%2C%0A%0AJe%20souhaite%20obtenir%20un%20devis%20pour%20une%20intervention.%0A%0AVoici%20mes%20informations%20%3A%0A-%20Nom%20%3A%20%0A-%20T%C3%A9l%C3%A9phone%20%3A%20%0A-%20Type%20d%27intervention%20%3A%20%0A-%20Description%20du%20besoin%20%3A%20%0A%0AMerci%20de%20me%20contacter%20dans%20les%20plus%20brefs%20d%C3%A9lais.%0A%0ACordialement" target="_blank" class="btn-call">✉️ Gmail</a>
     </div>
     <div class="hero-stats">
       <div class="stat"><span class="stat-num">200+</span><span class="stat-label">Clients satisfaits</span></div>
@@ -578,7 +581,7 @@ textarea.form-input{resize:vertical;min-height:100px}
             <li>Étude thermique incluse</li>
             <li>Mise en service & réglages</li>
           </ul>
-          <a href="#contact" class="scard-btn scard-btn-primary">Demander un devis →</a>
+          <a href="#devis" class="scard-btn scard-btn-primary" onclick="event.preventDefault();goToDevis('Climatisation')">Demander un devis →</a>
         </div>
 
         <div class="scard featured-card">
@@ -594,7 +597,7 @@ textarea.form-input{resize:vertical;min-height:100px}
             <li>Conception sur mesure</li>
             <li>Installation clé en main</li>
           </ul>
-          <a href="#contact" class="scard-btn scard-btn-primary">Demander un devis →</a>
+          <a href="#devis" class="scard-btn scard-btn-primary" onclick="event.preventDefault();goToDevis('Froid Industriel')">Demander un devis →</a>
         </div>
 
         <div class="scard">
@@ -608,7 +611,7 @@ textarea.form-input{resize:vertical;min-height:100px}
             <li>Formation des équipes</li>
             <li>Dossier technique complet</li>
           </ul>
-          <a href="#contact" class="scard-btn">Demander un devis →</a>
+          <a href="#devis" class="scard-btn" onclick="event.preventDefault();goToDevis('Froid Industriel')">Demander un devis →</a>
         </div>
 
       </div>
@@ -628,7 +631,7 @@ textarea.form-input{resize:vertical;min-height:100px}
             <li>Sanitaire résidentiel & commercial</li>
             <li>Détection & réparation de fuites</li>
           </ul>
-          <a href="#contact" class="scard-btn">Demander un devis →</a>
+          <a href="#devis" class="scard-btn" onclick="event.preventDefault();goToDevis('Électricité & Plomberie')">Demander un devis →</a>
         </div>
 
         <div class="scard featured-card">
@@ -644,7 +647,7 @@ textarea.form-input{resize:vertical;min-height:100px}
             <li>Mise aux normes</li>
             <li>Résidentiel & industriel</li>
           </ul>
-          <a href="#contact" class="scard-btn scard-btn-primary">Demander un devis →</a>
+          <a href="#devis" class="scard-btn scard-btn-primary" onclick="event.preventDefault();goToDevis('Électricité & Plomberie')">Demander un devis →</a>
         </div>
 
         <div class="scard">
@@ -653,11 +656,8 @@ textarea.form-input{resize:vertical;min-height:100px}
           <p class="scard-desc">Systèmes de ventilation mécanique contrôlée pour locaux industriels, hôtels et établissements publics.</p>
           <ul class="scard-list">
             <li>VMC simple & double flux</li>
-            <li>Ventilation industrielle</li>
-            <li>Extraction cuisine professionnelle</li>
-            <li>Conformité normes ERP</li>
           </ul>
-          <a href="#contact" class="scard-btn">Demander un devis →</a>
+          <a href="#devis" class="scard-btn" onclick="event.preventDefault();goToDevis('Travaux Multi-techniques')">Demander un devis →</a>
         </div>
 
       </div>
@@ -678,7 +678,7 @@ textarea.form-input{resize:vertical;min-height:100px}
             <li>Pièces de rechange en stock</li>
             <li>Conseil technique inclus</li>
           </ul>
-          <a href="#contact" class="scard-btn">Demander un devis →</a>
+          <a href="#devis" class="scard-btn" onclick="event.preventDefault();goToDevis('Froid Industriel')">Demander un devis →</a>
         </div>
 
         <div class="scard featured-card">
@@ -707,7 +707,7 @@ textarea.form-input{resize:vertical;min-height:100px}
             <li>Mise en service & formation</li>
             <li>Suivi & maintenance long terme</li>
           </ul>
-          <a href="#contact" class="scard-btn">Nous contacter →</a>
+          <a href="#devis" class="scard-btn" onclick="event.preventDefault();goToDevis('Maintenance & SAV')">Demander un devis →</a>
         </div>
 
       </div>
@@ -730,7 +730,7 @@ textarea.form-input{resize:vertical;min-height:100px}
             <li>Coordination multi-corps d'état</li>
             <li>Devis détaillé & transparent</li>
           </ul>
-          <a href="#contact" class="scard-btn scard-btn-primary">Demander un devis →</a>
+          <a href="#devis" class="scard-btn scard-btn-primary" onclick="event.preventDefault();goToDevis('Maintenance & SAV')">Demander un devis →</a>
         </div>
 
         <div class="scard">
@@ -743,7 +743,7 @@ textarea.form-input{resize:vertical;min-height:100px}
             <li>Réseaux gaz</li>
             <li>Villas & résidentiel</li>
           </ul>
-          <a href="#contact" class="scard-btn">Demander un devis →</a>
+          <a href="#devis" class="scard-btn" onclick="event.preventDefault();goToDevis('Travaux Multi-techniques')">Demander un devis →</a>
         </div>
 
         <div class="scard">
@@ -756,7 +756,7 @@ textarea.form-input{resize:vertical;min-height:100px}
             <li>Suivi de chantier centralisé</li>
             <li>Facturation unique simplifiée</li>
           </ul>
-          <a href="#contact" class="scard-btn">Nous contacter →</a>
+          <a href="#devis" class="scard-btn" onclick="event.preventDefault();goToDevis('Travaux Multi-techniques')">Demander un devis →</a>
         </div>
 
       </div>
@@ -827,40 +827,59 @@ textarea.form-input{resize:vertical;min-height:100px}
     <div class="sh reveal">
       <div class="sh-badge">Nos Réalisations</div>
       <h2 class="sh-title">Ils nous font confiance</h2>
-      <p class="sh-sub">Des projets réels, des budgets réels, des clients satisfaits</p>
+      <p class="sh-sub">Des projets réels, des clients satisfaits</p>
     </div>
     <div class="real-stat-row reveal">
-      <div class="real-stat"><div class="rs-num">14</div><div class="rs-label">Projets réalisés</div></div>
-      <div class="real-stat"><div class="rs-num">3,5M+</div><div class="rs-label">DH de travaux</div></div>
+      <div class="real-stat"><div class="rs-num">28+</div><div class="rs-label">Projets réalisés</div></div>
+      <div class="real-stat"><div class="rs-num">✦</div><div class="rs-label">Budgets confidentiels</div></div>
       <div class="real-stat"><div class="rs-num">4</div><div class="rs-label">Secteurs couverts</div></div>
       <div class="real-stat"><div class="rs-num">2022—2025</div><div class="rs-label">Années d'activité</div></div>
     </div>
     <div class="real-tabs reveal">
       <button class="rtab active" data-rg="hotelier">🏨 Hôtellerie & Tourisme</button>
       <button class="rtab" data-rg="industriel">🏭 Industriel & Commerce</button>
-      <button class="rtab" data-rg="restauration">🍽️ Restauration & Résidentiel</button>
+      <button class="rtab" data-rg="restauration">🍽️ Restauration</button>
       <button class="rtab" data-rg="public">🏛️ Établissements Publics</button>
     </div>
+
+    <!-- HÔTELLERIE -->
     <div class="real-group active" id="hotelier">
-      <div class="real-card"><div class="rc-year">El Jadida — 2023</div><div class="rc-name">Hôtel Ô Bateau</div><div class="rc-location">📍 El Jadida</div><div class="rc-service">Froid industriel, Climatisation & Chauffage</div><div class="rc-budget">💰 400 000 DH</div></div>
-      <div class="real-card"><div class="rc-year">Agadir — 2024</div><div class="rc-name">Hôtel Amadil</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel</div><div class="rc-budget">💰 912 871 DH</div></div>
-      <div class="real-card"><div class="rc-year">Agadir — 2024</div><div class="rc-name">Hôtel The View</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel</div><div class="rc-budget">💰 444 411 DH</div></div>
-      <div class="real-card"><div class="rc-year">Agadir — 2024</div><div class="rc-name">Hôtel Royal Mirage</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel</div><div class="rc-budget">💰 333 481 DH</div></div>
-      <div class="real-card"><div class="rc-year">Agadir — 2022</div><div class="rc-name">Club Al Moggar</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Climatisation, Ventilation & Gaz</div><div class="rc-budget">💰 100 000 DH</div></div>
-      <div class="real-card"><div class="rc-year">Agadir — 2024</div><div class="rc-name">Les Dunes d'Or</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel</div><div class="rc-budget" style="background:var(--surface);color:var(--frost);border:1px solid var(--frost-light)">Confidentiel</div></div>
-      <div class="real-card"><div class="rc-year">Agadir — 2025</div><div class="rc-name">Hôtel Heltan</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel</div><div class="rc-budget" style="background:var(--surface);color:var(--frost);border:1px solid var(--frost-light)">Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">El Jadida — 2023</div><div class="rc-name">Hôtel Ô Bateau</div><div class="rc-location">📍 El Jadida</div><div class="rc-service">Froid industriel, Climatisation & Chauffage</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Agadir — 2024</div><div class="rc-name">Hôtel Amadil</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Agadir — 2024</div><div class="rc-name">Hôtel The View</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Agadir — 2024</div><div class="rc-name">Hôtel Royal Mirage</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Agadir — 2022</div><div class="rc-name">Club Al Moggar</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Climatisation, Ventilation & Gaz</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Agadir — 2024</div><div class="rc-name">Les Dunes d'Or</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Agadir — 2025</div><div class="rc-name">Hôtel Heltan</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
     </div>
+
+    <!-- INDUSTRIEL & COMMERCE -->
     <div class="real-group" id="industriel">
-      <div class="real-card"><div class="rc-year">Sidi Bibi — 2022</div><div class="rc-name">Agadir Fraîche</div><div class="rc-location">📍 Sidi Bibi</div><div class="rc-service">Froid industriel — Usine de production</div><div class="rc-budget">💰 150 000 DH</div></div>
-      <div class="real-card"><div class="rc-year">Agadir — 2022</div><div class="rc-name">La Baguette Dorée</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Maintenance & installation Froid — Boulangerie</div><div class="rc-budget" style="background:var(--surface);color:var(--frost);border:1px solid var(--frost-light)">Confidentiel</div></div>
-      <div class="real-card"><div class="rc-year">Agadir — 2023</div><div class="rc-name">FH Sous</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel</div><div class="rc-budget">💰 222 390 DH</div></div>
+      <div class="real-card"><div class="rc-year">Sidi Bibi — 2022</div><div class="rc-name">Agadir Fraîche</div><div class="rc-location">📍 Sidi Bibi</div><div class="rc-service">Froid industriel — Usine de production</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Agadir — 2023</div><div class="rc-name">FH Sous</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Marrakech</div><div class="rc-name">Sofitrac</div><div class="rc-location">📍 Marrakech</div><div class="rc-service">Froid industriel & Climatisation</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Agadir</div><div class="rc-name">Akayn Khadamat</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel & Maintenance</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Agadir</div><div class="rc-name">Cosarno</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
     </div>
+
+    <!-- RESTAURATION -->
     <div class="real-group" id="restauration">
-      <div class="real-card"><div class="rc-year">Agadir — 2022</div><div class="rc-name">Restaurant Rbati</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Climatisation & Gaz</div><div class="rc-budget">💰 400 000 DH</div></div>
-      <div class="real-card"><div class="rc-year">Oulad Teima — 2025</div><div class="rc-name">Villat Limoune</div><div class="rc-location">📍 Oulad Teima</div><div class="rc-service">Chauffage & Climatisation — Villa résidentielle</div><div class="rc-budget">💰 350 000 DH</div></div>
+      <div class="real-card"><div class="rc-year">Agadir — 2022</div><div class="rc-name">Restaurant Rbati</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Climatisation & Gaz</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Oulad Teima — 2025</div><div class="rc-name">Villa Limoune</div><div class="rc-location">📍 Oulad Teima</div><div class="rc-service">Chauffage & Climatisation — Villa résidentielle</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Agadir — 2022</div><div class="rc-name">La Baguette Dorée</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Maintenance & installation Froid — Boulangerie</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Agadir</div><div class="rc-name">Mini Pain</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel & Climatisation</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Agadir</div><div class="rc-name">Carré Blanc</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Froid industriel & Climatisation</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Agadir</div><div class="rc-name">Beldi Fusion</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Climatisation & Froid</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
     </div>
+
+    <!-- ÉTABLISSEMENTS PUBLICS -->
     <div class="real-group" id="public">
-      <div class="real-card"><div class="rc-year">Souss Massa — 2023</div><div class="rc-name">Établissements Jeunesse</div><div class="rc-location">📍 Région Souss Massa</div><div class="rc-service">Climatisation & VMC</div><div class="rc-budget">💰 850 680 DH</div></div>
+      <div class="real-card"><div class="rc-year">Taroudant — 2023</div><div class="rc-name">Dar Chabab — Taroudant</div><div class="rc-location">📍 Taroudant</div><div class="rc-service">Climatisation & VMC</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Aqa — 2023</div><div class="rc-name">Dar Chabab — Aqa</div><div class="rc-location">📍 Aqa</div><div class="rc-service">Climatisation & VMC</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Foum El Oued — 2023</div><div class="rc-name">Dar Chabab — Foum El Oued</div><div class="rc-location">📍 Foum El Oued</div><div class="rc-service">Climatisation & VMC</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Tafraout — 2023</div><div class="rc-name">Dar Chabab — Tafraout</div><div class="rc-location">📍 Tafraout</div><div class="rc-service">Climatisation & VMC</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Tiznit — 2023</div><div class="rc-name">Dar Chabab — Tiznit</div><div class="rc-location">📍 Tiznit</div><div class="rc-service">Climatisation & VMC</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
+      <div class="real-card"><div class="rc-year">Agadir</div><div class="rc-name">Grand Hôpital d'Agadir</div><div class="rc-location">📍 Agadir</div><div class="rc-service">Climatisation, Ventilation & Désenfumage — Santé</div><div class="rc-budget-conf">🔒 Confidentiel</div></div>
     </div>
   </div>
 </section>
@@ -1095,6 +1114,13 @@ textarea.form-input{resize:vertical;min-height:100px}
               </div>
             </div>
             <div style="display:flex;align-items:flex-start;gap:14px">
+              <div style="width:42px;height:42px;background:rgba(14,165,233,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;border:1px solid rgba(14,165,233,.2)">✉️</div>
+              <div>
+                <div style="font-size:.7rem;color:#94A3B8;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px">Email</div>
+                <a href="mailto:bariprotec@gmail.com" style="font-size:.95rem;font-weight:600;color:white;text-decoration:none">bariprotec@gmail.com</a>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:14px">
               <div style="width:42px;height:42px;background:rgba(14,165,233,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;border:1px solid rgba(14,165,233,.2)">📍</div>
               <div>
                 <div style="font-size:.7rem;color:#94A3B8;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px">Zone d'intervention</div>
@@ -1167,6 +1193,40 @@ textarea.form-input{resize:vertical;min-height:100px}
 </footer>
 
 <script>
+// Go to devis and auto-select service
+function goToDevis(serviceVal) {
+  // 1. Scroll to devis section
+  const devisSection = document.getElementById('devis');
+  if (devisSection) devisSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // 2. After scroll, auto-select the right option in step 1
+  setTimeout(() => {
+    // Reset to step 1
+    document.querySelectorAll('.devis-step').forEach(s => s.classList.remove('active'));
+    const step1 = document.getElementById('step1');
+    if (step1) step1.classList.add('active');
+
+    // Find and click the matching option
+    const opts = document.querySelectorAll('#opts-service .devis-opt');
+    opts.forEach(opt => {
+      const label = opt.querySelector('.dopt-label');
+      if (label && label.textContent.trim() === serviceVal) {
+        // Deselect all first
+        opts.forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+        // Update summary
+        const sumService = document.getElementById('sum-service');
+        if (sumService) sumService.textContent = serviceVal;
+        // Store in devisData
+        if (typeof devisData !== 'undefined') devisData.service = serviceVal;
+        // Flash highlight
+        opt.style.transform = 'scale(1.04)';
+        setTimeout(() => { opt.style.transform = ''; }, 300);
+      }
+    });
+  }, 600);
+}
+
 // Services V2 tabs
 function switchPole(btn) {
   document.querySelectorAll('.spill').forEach(b => b.classList.remove('active'));
